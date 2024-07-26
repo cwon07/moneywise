@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { insertCategorySchema } from "@/db/schema";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 
-const formSchema = insertCategorySchema.pick({ // only used for creating an account
+const formSchema = insertCategorySchema.pick({ // only used for creating a category
     name: true,
 });
 

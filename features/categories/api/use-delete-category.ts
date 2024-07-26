@@ -20,7 +20,7 @@ export const useDeleteCategory = (id?: string) => {
             return await response.json();
         },
         onSuccess: () => {
-            toast.success("Account deleted");
+            toast.success("Category deleted");
             queryClient.invalidateQueries({ queryKey: ["category", { id }] });
             queryClient.invalidateQueries({ queryKey: ["categories"] });
             // TODO: Invalidate summary and transactions
