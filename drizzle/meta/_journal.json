@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1721885980124,
+      "tag": "0000_cynical_dazzler",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1721886672977,
+      "tag": "0001_first_rachel_grey",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1722013082043,
+      "tag": "0002_careless_deathstrike",
+      "breakpoints": true
+    }
+  ]
+}
