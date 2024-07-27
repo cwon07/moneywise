@@ -58,8 +58,9 @@ const app = new Hono()
             )
             .orderBy(desc(transactions.date));
 
-    return c.json({ data })
-    })
+        return c.json({ data })
+        }
+    )
     .get(
         "/:id",
         zValidator("param", z.object({

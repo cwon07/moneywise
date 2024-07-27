@@ -1,39 +1,39 @@
 import { z } from "zod";
 import { Loader2 } from "lucide-react";
 
-import { useOpenAccount } from "@/features/accounts/hooks/use-open-account";
-import { AccountForm } from "@/features/accounts/components/account-form";
-import { useGetAccount } from "@/features/accounts/api/use-get-account";
-import { insertAccountSchema } from "@/db/schema";
+import { useOpenTransaction } from "@/features/transactions/hooks/use-open-transaction";
+import { TransactionForm } from "@/features/transactions/components/transaction-form";
+import { useGetTransaction } from "@/features/transactions/api/use-get-transaction";
+import { insertTransactionSchema } from "@/db/schema";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle}  from "@/components/ui/sheet";
-import { useEditAccount } from "@/features/accounts/api/use-edit-account";
-import { useDeleteAccount } from "@/features/accounts/api/use-delete-account";
+import { useEditTransaction } from "@/features/transactions/api/use-edit-transaction";
+import { useDeleteTransaction } from "@/features/transactions/api/use-delete-transaction";
 import { useConfirm } from "@/hooks/use-confirm";
 
 
 
-const formSchema = insertAccountSchema.pick({
+const formSchema = insertTransactionSchema.pick({
     name: true,
 });
 
 type FormValues = z.input<typeof formSchema>
 
-export const EditAccountSheet = () => {
-    const { isOpen, onClose, id } = useOpenAccount();
+export const EditTransactionSheet = () => {
+    const { isOpen, onClose, id } = useOpenTransaction();
 
     const [ConfirmDialog, confirm] = useConfirm(
         "Are you sure?",
-        "You are about to delete this account"
+        "You are about to delete this transaction"
         // TODO: the second line does not show up in the pop-up notification, check package version
     )
 
-    const accountQuery = useGetAccount(id)
-    const editMutation = useEditAccount(id);
-    const deleteMutation = useDeleteAccount(id);
+    const transactionQuery = useGetTransaction(id)
+    const editMutation = useEditTransaction(id);
+    const deleteMutation = useDeleteTransaction(id);
 
     const isPending = editMutation.isPending || deleteMutation.isPending;
 
-    const isLoading = accountQuery.isLoading;
+    const isLoading = transactionQuery.isLoading;
 
     const onSubmit = (values: FormValues) => {
         editMutation.mutate(values, {
@@ -55,8 +55,8 @@ export const EditAccountSheet = () => {
         }
     }
 
-    const defaultValues = accountQuery.data ? {
-        name: accountQuery.data.name
+    const defaultValues = transactionQuery.data ? {
+        name: transactionQuery.data.name
     } : {
         name: "",
     };
@@ -68,10 +68,10 @@ export const EditAccountSheet = () => {
             <SheetContent className="space-y-4">
                 <SheetHeader>
                     <SheetTitle>
-                        Edit Account
+                        Edit Transaction
                     </SheetTitle>
                     <SheetDescription>
-                        Edit an existing account
+                        Edit an existing transaction
                     </SheetDescription>
                 </SheetHeader>
                 {isLoading
@@ -80,7 +80,7 @@ export const EditAccountSheet = () => {
                             <Loader2 className="size-4 text-muted-foreground animate-spin" />
                         </div>
                     ) : (                
-                        <AccountForm 
+                        <TransactionForm 
                             id={id}
                             onSubmit={onSubmit}
                             disabled={isPending}
