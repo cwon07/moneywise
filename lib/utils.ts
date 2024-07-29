@@ -36,8 +36,8 @@ export function calculatePercentageChange(
 export function fillMissingDays(
   activeDays: {
     date: Date,
-    income: Number,
-    expenses: Number
+    income: number,
+    expenses: number
   }[],
     startDate: Date,
     endDate: Date,
@@ -60,7 +60,7 @@ export function fillMissingDays(
       return {
         date: day,
         income: 0,
-        expenses: 0
+        expenses: 0,
       }
     }
   })

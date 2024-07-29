@@ -177,7 +177,7 @@ const app = new Hono()
                     activeDays,
                     startDate,
                     endDate,
-                )
+                );
 
             return c.json({
                 data: {
