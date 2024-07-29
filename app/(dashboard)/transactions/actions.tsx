@@ -1,5 +1,7 @@
 "use client"
 
+/// pop up notification when Delete Transaction is clicked 
+
 import { Button } from "@/components/ui/button";
 import { 
     DropdownMenu,
@@ -21,7 +23,7 @@ type Props = {
 export const Actions = ({ id }: Props) => {
     const [ConfirmDialog, confirm] = useConfirm(
         "Are you sure?",
-        "You are about to delete this transaction"
+        "You are about to delete this transaction."
     );
 
     const deleteMutation = useDeleteTransaction(id)

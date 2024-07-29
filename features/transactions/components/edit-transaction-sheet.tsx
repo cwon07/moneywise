@@ -36,6 +36,7 @@ export const EditTransactionSheet = () => {
     const editMutation = useEditTransaction(id);
     const deleteMutation = useDeleteTransaction(id);
 
+    //
     const categoryQuery = useGetCategories();
     const categoryMutation = useCreateCategory();
     const onCreateCategory = (name: string) => categoryMutation.mutate({

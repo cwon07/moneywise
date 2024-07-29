@@ -1,5 +1,7 @@
 "use client"
 
+// the columns on the Transactions page
+
 import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown } from "lucide-react";
 import { InferResponseType } from "hono";
