@@ -69,8 +69,8 @@ export const EditTransactionSheet = () => {
         categoryQuery.isLoading || 
         accountQuery.isLoading;
 
-    const onSubmit = (values: FormValues) => {
-        editMutation.mutate(values, {
+    const onSubmit = (values: FormValues) => { 
+        editMutation.mutate(values, { 
             onSuccess: () => {
                 onClose();
             },

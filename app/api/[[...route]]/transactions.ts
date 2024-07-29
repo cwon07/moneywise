@@ -240,7 +240,7 @@ const app = new Hono()
                 .update(transactions)
                 .set(values)
                 .where(
-                    inArray(transactions.id, sql`(select id from ${transactionsToUpdate}})`)
+                    inArray(transactions.id, sql`(select id from ${transactionsToUpdate})`)
                 )
                 .returning();
             

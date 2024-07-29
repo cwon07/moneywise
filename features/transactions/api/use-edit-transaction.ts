@@ -16,7 +16,7 @@ export const useEditTransaction = (id?: string) => {
     RequestType
     >({
         mutationFn: async (json) => {
-            const response = await client.api.transactions[":id"]["$patch"]({ 
+            const response = await client.api.transactions[":id"]["$patch"]({ // error here
                 param: { id }, 
                 json, 
             });
