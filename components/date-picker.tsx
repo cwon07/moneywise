@@ -6,7 +6,7 @@ import { SelectSingleEventHandler } from 'react-day-picker'
 import { cn } from '@/lib/utils'
 import { Button } from './ui/button'
 import { Calendar } from './ui/calendar'
-import { Popover, PopoverContent, PopoverTrigger } from '@radix-ui/react-popover'
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 
 type Props = {
     value?: Date;
@@ -30,7 +30,7 @@ export const DatePicker = ({
                             !value && "text-muted-foreground",
                         )}
                     >
-                    <CalendarIcon className='size-4 m4-2' />
+                    <CalendarIcon className='size-4 mr-2' />
                     {value ? format(value, "PPP") : <span> Pick a date</span>}
                     </Button>
                 </PopoverTrigger>
